@@ -45,7 +45,7 @@ int
 semver_compare (semver_t x, semver_t y);
 
 int
-semver_compare_version (semver_t x, semver_t y);
+semver_compare_version (semver_t x, semver_t y); // Done
 
 int
 semver_compare_prerelease (semver_t x, semver_t y);
@@ -75,19 +75,19 @@ int
 semver_parse_version (const char *str, semver_t *ver);
 
 void
-semver_render (semver_t *x, char *dest);
+semver_render (semver_t *x, char *dest); // In Progress
 
 int
 semver_numeric (semver_t *x);
 
 void
-semver_bump (semver_t *x);
+semver_bump (semver_t *x); // Done
 
 void
-semver_bump_minor (semver_t *x);
+semver_bump_minor (semver_t *x); // Done
 
 void
-semver_bump_patch (semver_t *x);
+semver_bump_patch (semver_t *x); // Done
 
 void
 semver_free (semver_t *x);

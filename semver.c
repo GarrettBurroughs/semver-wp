@@ -6,7 +6,12 @@
  */
 
 #include "semver.h"
-#include "stubs.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+/* #include "framac/__fc_string_axiomatic.h" */
+
 
 #define SLICE_SIZE   50
 #define DELIMITER    "."
@@ -55,11 +60,10 @@ strcut (char *str, int begin, int len) {
   return len;
 }
 
-static int
-contains (const char c, const char *matrix, size_t len) {
-  size_t x;
-  for (x = 0; x < len; x++)
-    if ((char) matrix[x] == c) return 1;
+static int contains(const char c, const char *matrix, size_t len) {
+  for (size_t x = 0; x < len; x++)
+    if (matrix[x] == c)
+      return 1;
   return 0;
 }
 
@@ -493,9 +497,7 @@ concat_char (char * str, char * x, char * sep) {
 /**
  * Render a given semver as string
  */
-
-void
-semver_render (semver_t *x, char *dest) {
+void semver_render (semver_t *x, char *dest) {
   if (x->major) concat_num(dest, x->major, NULL);
   if (x->minor) concat_num(dest, x->minor, DELIMITER);
   if (x->patch) concat_num(dest, x->patch, DELIMITER);
@@ -594,7 +596,6 @@ char_to_int (const char * str) {
  * Render a given semver as numeric value.
  * Useful for ordering and filtering.
  */
-
 int
 semver_numeric (semver_t *x) {
   int num;
